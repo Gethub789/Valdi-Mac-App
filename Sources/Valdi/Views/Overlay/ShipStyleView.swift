@@ -63,7 +63,6 @@ public struct ShipStyleView: View {
     @ViewBuilder
     private func shipLineRow(line: LineLyric, relativeStep: Int) -> some View {
         let isActiveLine = (relativeStep == 0)
-        let zDepth: CGFloat = CGFloat(-abs(relativeStep) * 60)
         let scale: CGFloat = isActiveLine ? 1.08 : max(0.65, 1.0 - CGFloat(abs(relativeStep)) * 0.14)
         let opacity: Double = isActiveLine ? 1.0 : max(0.2, 0.7 - Double(abs(relativeStep)) * 0.22)
         
@@ -92,7 +91,6 @@ public struct ShipStyleView: View {
         }
         .scaleEffect(scale)
         .opacity(opacity)
-        .transform3DEffect(CATransform3DMakeTranslation(0, 0, zDepth))
         .animation(.spring(response: 0.45, dampingFraction: 0.8), value: activeLineIndex)
     }
     

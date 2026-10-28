@@ -1,0 +1,86 @@
+{
+  "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/DerivedSources\/resource_bundle_accessor.swift" : {
+    "const-values" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/resource_bundle_accessor.swiftconstvalues",
+    "dependencies" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/resource_bundle_accessor.d",
+    "diagnostics" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/resource_bundle_accessor.dia",
+    "object" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/resource_bundle_accessor.o",
+    "swift-dependencies" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/resource_bundle_accessor.swiftdeps"
+  },
+  "\/workspaces\/Valdi-Mac-App\/Sources\/Valdi\/App\/AppDelegate.swift" : {
+    "const-values" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/AppDelegate.swiftconstvalues",
+    "dependencies" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/AppDelegate.d",
+    "diagnostics" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/AppDelegate.dia",
+    "object" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/AppDelegate.o",
+    "swift-dependencies" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/AppDelegate.swiftdeps"
+  },
+  "\/workspaces\/Valdi-Mac-App\/Sources\/Valdi\/App\/ValdiApp.swift" : {
+    "const-values" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/ValdiApp.swiftconstvalues",
+    "dependencies" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/ValdiApp.d",
+    "diagnostics" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/ValdiApp.dia",
+    "object" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/ValdiApp.o",
+    "swift-dependencies" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/ValdiApp.swiftdeps"
+  },
+  "\/workspaces\/Valdi-Mac-App\/Sources\/Valdi\/Models\/AppTheme.swift" : {
+    "const-values" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/AppTheme.swiftconstvalues",
+    "dependencies" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/AppTheme.d",
+    "diagnostics" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/AppTheme.dia",
+    "object" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/AppTheme.o",
+    "swift-dependencies" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/AppTheme.swiftdeps"
+  },
+  "\/workspaces\/Valdi-Mac-App\/Sources\/Valdi\/Models\/DisplayBehavior.swift" : {
+    "const-values" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/DisplayBehavior.swiftconstvalues",
+    "dependencies" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/DisplayBehavior.d",
+    "diagnostics" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/DisplayBehavior.dia",
+    "object" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/DisplayBehavior.o",
+    "swift-dependencies" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/DisplayBehavior.swiftdeps"
+  },
+  "\/workspaces\/Valdi-Mac-App\/Sources\/Valdi\/Models\/DisplayStyle.swift" : {
+    "const-values" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/DisplayStyle.swiftconstvalues",
+    "dependencies" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/DisplayStyle.d",
+    "diagnostics" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/DisplayStyle.dia",
+    "object" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/DisplayStyle.o",
+    "swift-dependencies" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/DisplayStyle.swiftdeps"
+  },
+  "\/workspaces\/Valdi-Mac-App\/Sources\/Valdi\/Models\/Lyrics.swift" : {
+    "const-values" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/Lyrics.swiftconstvalues",
+    "dependencies" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/Lyrics.d",
+    "diagnostics" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/Lyrics.dia",
+    "object" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/Lyrics.o",
+    "swift-dependencies" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/Lyrics.swiftdeps"
+  },
+  "\/workspaces\/Valdi-Mac-App\/Sources\/Valdi\/Models\/Track.swift" : {
+    "const-values" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/Track.swiftconstvalues",
+    "dependencies" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/Track.d",
+    "diagnostics" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/Track.dia",
+    "object" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/Track.o",
+    "swift-dependencies" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/Track.swiftdeps"
+  },
+  "\/workspaces\/Valdi-Mac-App\/Sources\/Valdi\/Services\/BeatSyncEngine.swift" : {
+    "const-values" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/BeatSyncEngine.swiftconstvalues",
+    "dependencies" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/BeatSyncEngine.d",
+    "diagnostics" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/BeatSyncEngine.dia",
+    "object" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/BeatSyncEngine.o",
+    "swift-dependencies" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/BeatSyncEngine.swiftdeps"
+  },
+  "\/workspaces\/Valdi-Mac-App\/Sources\/Valdi\/Services\/LockScreenDetector.swift" : {
+    "const-values" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/LockScreenDetector.swiftconstvalues",
+    "dependencies" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/LockScreenDetector.d",
+    "diagnostics" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/LockScreenDetector.dia",
+    "object" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/LockScreenDetector.o",
+    "swift-dependencies" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/LockScreenDetector.swiftdeps"
+  },
+  "\/workspaces\/Valdi-Mac-App\/Sources\/Valdi\/Services\/LumnCompanionService.swift" : {
+    "const-values" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/LumnCompanionService.swiftconstvalues",
+    "dependencies" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/LumnCompanionService.d",
+    "diagnostics" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/LumnCompanionService.dia",
+    "object" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/LumnCompanionService.o",
+    "swift-dependencies" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/LumnCompanionService.swiftdeps"
+  },
+  "\/workspaces\/Valdi-Mac-App\/Sources\/Valdi\/Services\/LyricsEngine.swift" : {
+    "const-values" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/LyricsEngine.swiftconstvalues",
+    "dependencies" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/LyricsEngine.d",
+    "diagnostics" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/LyricsEngine.dia",
+    "object" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/LyricsEngine.o",
+    "swift-dependencies" : "\/workspaces\/Valdi-Mac-App\/.build\/out\/Intermediates.noindex\/Valdi.build\/Debug-linux-x86_64\/Valdi-p.build\/Objects-normal\/x86_64\/LyricsEngine.swiftdeps"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "" : {
+    "diagnostics" : "/workspaces/Valdi-Mac-App/.build/out/Intermediates.noindex/Valdi.build/Debug-linux-x86_64/ValdiTests-p.build/Objects-normal/x86_64/ValdiTests-primary.dia",
+    "emit-module-dependencies" : "/workspaces/Valdi-Mac-App/.build/out/Intermediates.noindex/Valdi.build/Debug-linux-x86_64/ValdiTests-p.build/Objects-normal/x86_64/ValdiTests-primary-emit-module.d",
+    "emit-module-diagnostics" : "/workspaces/Valdi-Mac-App/.build/out/Intermediates.noindex/Valdi.build/Debug-linux-x86_64/ValdiTests-p.build/Objects-normal/x86_64/ValdiTests-primary-emit-module.dia",
+    "pch" : "/workspaces/Valdi-Mac-App/.build/out/Intermediates.noindex/Valdi.build/Debug-linux-x86_64/ValdiTests-p.build/Objects-normal/x86_64/ValdiTests-primary-Bridging-header.pch",
+    "swift-dependencies" : "/workspaces/Valdi-Mac-App/.build/out/Intermediates.noindex/Valdi.build/Debug-linux-x86_64/ValdiTests-p.build/Objects-normal/x86_64/ValdiTests-primary.swiftdeps"
+  },
+  "/workspaces/Valdi-Mac-App/.build/out/Intermediates.noindex/Valdi.build/Debug-linux-x86_64/ValdiTests-p.build/DerivedSources/test_anchor.swift" : {
+    "const-values" : "/workspaces/Valdi-Mac-App/.build/out/Intermediates.noindex/Valdi.build/Debug-linux-x86_64/ValdiTests-p.build/Objects-normal/x86_64/test_anchor.swiftconstvalues",
+    "dependencies" : "/workspaces/Valdi-Mac-App/.build/out/Intermediates.noindex/Valdi.build/Debug-linux-x86_64/ValdiTests-p.build/Objects-normal/x86_64/test_anchor.d",
+    "diagnostics" : "/workspaces/Valdi-Mac-App/.build/out/Intermediates.noindex/Valdi.build/Debug-linux-x86_64/ValdiTests-p.build/Objects-normal/x86_64/test_anchor.dia",
+    "index-unit-output-path" : "/Valdi.build/Debug-linux-x86_64/ValdiTests-p.build/Objects-normal/x86_64/test_anchor.o",
+    "llvm-bc" : "/workspaces/Valdi-Mac-App/.build/out/Intermediates.noindex/Valdi.build/Debug-linux-x86_64/ValdiTests-p.build/Objects-normal/x86_64/test_anchor.bc",
+    "object" : "/workspaces/Valdi-Mac-App/.build/out/Intermediates.noindex/Valdi.build/Debug-linux-x86_64/ValdiTests-p.build/Objects-normal/x86_64/test_anchor.o",
+    "swift-dependencies" : "/workspaces/Valdi-Mac-App/.build/out/Intermediates.noindex/Valdi.build/Debug-linux-x86_64/ValdiTests-p.build/Objects-normal/x86_64/test_anchor.swiftdeps",
+    "swiftmodule" : "/workspaces/Valdi-Mac-App/.build/out/Intermediates.noindex/Valdi.build/Debug-linux-x86_64/ValdiTests-p.build/Objects-normal/x86_64/test_anchor~partial.swiftmodule"
+  },
+  "/workspaces/Valdi-Mac-App/Tests/ValdiTests/ValdiTests.swift" : {
+    "const-values" : "/workspaces/Valdi-Mac-App/.build/out/Intermediates.noindex/Valdi.build/Debug-linux-x86_64/ValdiTests-p.build/Objects-normal/x86_64/ValdiTests.swiftconstvalues",
+    "dependencies" : "/workspaces/Valdi-Mac-App/.build/out/Intermediates.noindex/Valdi.build/Debug-linux-x86_64/ValdiTests-p.build/Objects-normal/x86_64/ValdiTests.d",
+    "diagnostics" : "/workspaces/Valdi-Mac-App/.build/out/Intermediates.noindex/Valdi.build/Debug-linux-x86_64/ValdiTests-p.build/Objects-normal/x86_64/ValdiTests.dia",
+    "index-unit-output-path" : "/Valdi.build/Debug-linux-x86_64/ValdiTests-p.build/Objects-normal/x86_64/ValdiTests.o",
+    "llvm-bc" : "/workspaces/Valdi-Mac-App/.build/out/Intermediates.noindex/Valdi.build/Debug-linux-x86_64/ValdiTests-p.build/Objects-normal/x86_64/ValdiTests.bc",
+    "object" : "/workspaces/Valdi-Mac-App/.build/out/Intermediates.noindex/Valdi.build/Debug-linux-x86_64/ValdiTests-p.build/Objects-normal/x86_64/ValdiTests.o",
+    "swift-dependencies" : "/workspaces/Valdi-Mac-App/.build/out/Intermediates.noindex/Valdi.build/Debug-linux-x86_64/ValdiTests-p.build/Objects-normal/x86_64/ValdiTests.swiftdeps",
+    "swiftmodule" : "/workspaces/Valdi-Mac-App/.build/out/Intermediates.noindex/Valdi.build/Debug-linux-x86_64/ValdiTests-p.build/Objects-normal/x86_64/ValdiTests~partial.swiftmodule"
+  }
+}

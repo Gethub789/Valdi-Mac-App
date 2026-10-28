@@ -1,4 +1,5 @@
 import Combine
+import CoreGraphics
 import Foundation
 
 /// Observes macOS system distributed notifications to determine when the screen is locked or unlocked.

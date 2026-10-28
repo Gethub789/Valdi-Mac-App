@@ -1,4 +1,5 @@
 import SwiftUI
+import QuartzCore
 
 /// Ship Style: Synced words stack into a dynamic wall that drifts through 3D space.
 /// Features spatial depth perspective, z-axis progression, and starfield drift.
@@ -91,7 +92,7 @@ public struct ShipStyleView: View {
         }
         .scaleEffect(scale)
         .opacity(opacity)
-        .offset(z: zDepth)
+        .transform3DEffect(CATransform3DMakeTranslation(0, 0, zDepth))
         .animation(.spring(response: 0.45, dampingFraction: 0.8), value: activeLineIndex)
     }
     

@@ -1,0 +1,16 @@
+Target dependency graph (6 targets)
+Target 'AllIncludingTests' in project 'Aggregate'
+➜ Explicit dependency on target 'ValdiTests-product' in project 'Valdi'
+➜ Explicit dependency on target 'ValdiTests-test-runner' in project 'Valdi'
+➜ Explicit dependency on target 'Valdi-product' in project 'Valdi'
+➜ Explicit dependency on target 'Valdi_Valdi' in project 'Valdi'
+Target 'ValdiTests-test-runner' in project 'Valdi'
+➜ Explicit dependency on target 'ValdiTests-product' in project 'Valdi'
+Target 'ValdiTests-product' in project 'Valdi'
+➜ Explicit dependency on target 'Valdi-product' in project 'Valdi'
+➜ Explicit dependency on target 'Valdi' in project 'Valdi'
+Target 'Valdi' in project 'Valdi'
+➜ Explicit dependency on target 'Valdi_Valdi' in project 'Valdi'
+Target 'Valdi-product' in project 'Valdi'
+➜ Explicit dependency on target 'Valdi_Valdi' in project 'Valdi'
+Target 'Valdi_Valdi' in project 'Valdi' (no dependencies)

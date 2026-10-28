@@ -48,7 +48,7 @@ flowchart LR
 
 ```
 Valdi/
-├── Package.swift                    # Swift Package Manager manifest (macOS 14+)
+├── Package.swift                    # Swift Package Manager manifest (minimum macOS 14)
 ├── Sources/Valdi/
 │   ├── App/
 │   │   ├── ValdiApp.swift           # @main SwiftUI App with MenuBarExtra (.window)
@@ -117,7 +117,7 @@ Valdi utilizes Metal 3.0 MSL stitchable functions for real-time lens refraction:
 ## ✦ Building & Packaging
 
 ### Requirements
-- macOS 14.0 (Sonoma) or later; CI is configured to build and test on macOS 26
+- macOS 14.0 (Sonoma) or later (minimum deployment target); CI builds and tests on macOS 26
 - Xcode 15.0+ or Swift 5.9+
 
 ### Build from Terminal (macOS)
@@ -141,7 +141,7 @@ chmod +x Scripts/build_dmg.sh
 
 ## ✦ Automated GitHub Actions CI/CD (Cloud DMG Builder)
 
-A GitHub Actions workflow is included at `.github/workflows/build.yml`. Pushing this repository to GitHub triggers a `macos-26` runner to compile the project, run tests, and produce a DMG and a ZIP containing the compiled `Valdi.app` as Actions artifacts. The app's minimum deployment target is macOS 14.0; CI is configured for macOS 26, while macOS 27 has not been runtime-tested.
+A GitHub Actions workflow is included at `.github/workflows/build.yml`. Pushing this repository to GitHub triggers a `macos-26` runner to compile the project, run tests, and produce a DMG and a ZIP containing the compiled `Valdi.app` as Actions artifacts. The app's minimum deployment target is macOS 14.0, but CI currently validates builds and tests only on macOS 26; earlier supported macOS versions are not covered by CI.
 
 ---
 

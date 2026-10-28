@@ -20,6 +20,7 @@ let package = Package(
             name: "Valdi",
             dependencies: [],
             path: "Sources/Valdi",
+            exclude: ["Resources/Info.plist"],
             resources: [
                 .process("Resources"),
                 .process("Shaders")

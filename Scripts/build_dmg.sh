@@ -12,6 +12,7 @@ VERSION="1.0.0"
 BUILD_DIR=".build/release"
 APP_BUNDLE="${APP_NAME}.app"
 DMG_NAME="${APP_NAME}-${VERSION}.dmg"
+ZIP_NAME="${APP_NAME}-${VERSION}.zip"
 STAGING_DIR="dist_staging"
 
 echo "==> [1/5] Compiling Valdi release binary..."
@@ -19,6 +20,7 @@ swift build -c release
 
 echo "==> [2/5] Creating application bundle structure..."
 rm -rf "${APP_BUNDLE}"
+rm -f "${DMG_NAME}" "${ZIP_NAME}"
 mkdir -p "${APP_BUNDLE}/Contents/MacOS"
 mkdir -p "${APP_BUNDLE}/Contents/Resources"
 
@@ -29,9 +31,13 @@ chmod +x "${APP_BUNDLE}/Contents/MacOS/${APP_NAME}"
 # Copy Info.plist
 cp "Sources/Valdi/Resources/Info.plist" "${APP_BUNDLE}/Contents/Info.plist"
 
-# Copy Metal shaders and resources if present
-if [ -d "${BUILD_DIR}/Valdi_Valdi.resources" ]; then
-    cp -R "${BUILD_DIR}/Valdi_Valdi.resources/"* "${APP_BUNDLE}/Contents/Resources/"
+# Copy the SwiftPM resource bundle without flattening it so Bundle.module can find it.
+RESOURCE_BUNDLE="${BUILD_DIR}/Valdi_Valdi.resources"
+if [ -d "${RESOURCE_BUNDLE}" ]; then
+    cp -R "${RESOURCE_BUNDLE}" "${APP_BUNDLE}/Contents/Resources/"
+    if [ -f "${RESOURCE_BUNDLE}/AppIcon.icns" ]; then
+        cp "${RESOURCE_BUNDLE}/AppIcon.icns" "${APP_BUNDLE}/Contents/Resources/"
+    fi
 fi
 
 echo "==> [3/5] Ad-hoc code signing app bundle..."
@@ -54,7 +60,10 @@ hdiutil create -volname "${APP_NAME}" \
 # Cleanup temporary staging folder
 rm -rf "${STAGING_DIR}"
 
+# Create a ZIP containing the compiled app bundle for direct download.
+zip -qr -X "${ZIP_NAME}" "${APP_BUNDLE}"
+
 echo "======================================================================"
-echo "SUCCESS: Valdi package built successfully: ${DMG_NAME}"
-echo "Execution Loop: Open DMG -> Drag to Applications -> Launch from Spotlight"
+echo "SUCCESS: Valdi packages built successfully: ${DMG_NAME} and ${ZIP_NAME}"
+echo "Execution Loop: Install from the DMG or unzip the app and move it to Applications"
 echo "======================================================================"

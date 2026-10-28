@@ -191,7 +191,7 @@ public final class LyricsEngine: ObservableObject {
             artist: artist,
             durationMs: durationMs,
             lines: parsedLines,
-            isWordLevelSynced: true
+            isWordLevelSynced: hasWordLevelTags
         )
     }
     
@@ -298,7 +298,7 @@ public final class LyricsEngine: ObservableObject {
             WordLyric(text: "Instrumental", startTimeMs: 0, endTimeMs: max(1000, durationMs), matchedSymbolName: "headphones", matchedEmoji: "🎧")
         ]
         let line = LineLyric(id: 0, startTimeMs: 0, endTimeMs: max(1000, durationMs), rawText: "♪ Instrumental ♪", words: words)
-        return SyncedSongLyrics(title: title, artist: artist, durationMs: durationMs, lines: [line], isWordLevelSynced: true)
+        return SyncedSongLyrics(title: title, artist: artist, durationMs: durationMs, lines: [line], isWordLevelSynced: false)
     }
     
     // MARK: - Disk Persistence

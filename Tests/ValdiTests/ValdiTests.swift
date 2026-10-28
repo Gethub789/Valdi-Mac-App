@@ -40,6 +40,7 @@ final class ValdiTests: XCTestCase {
         XCTAssertEqual(song.lines.count, 2)
         XCTAssertEqual(song.lines[0].startTimeMs, 4500)
         XCTAssertEqual(song.lines[1].startTimeMs, 8200)
+        XCTAssertFalse(song.isWordLevelSynced)
         
         // Verify word synthesis ensures every word has non-zero duration
         for line in song.lines {

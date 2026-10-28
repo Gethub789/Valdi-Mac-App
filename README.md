@@ -1,19 +1,19 @@
-# Valdi — Millisecond-Synced Lock Screen Lyrics for macOS
+# Valdi — Animated Lyrics Visualizer for macOS
 
-> **Valdi** is a native macOS menu bar application (macOS 14+) that displays word-by-word synced lyrics over the Mac lock screen, synchronized to the exact millisecond when each word is sung in **Spotify** or **Apple Music**.
+> **Valdi** is a native macOS menu bar visualizer (macOS 14+) that displays animated lyrics while **Spotify** or **Apple Music** plays. It uses synchronized lyric timestamps when available and estimates word timing when only line timestamps are provided.
 
 ---
 
 ## ✦ Core Features
 
 - **Menu Bar Exclusive (`LSUIElement`):** Lives solely in the macOS menu bar. No dock clutter, no standard windows.
-- **Sub-Millisecond Clock Interpolation:** Bridges distributed player notifications and native AppleScript hooks with 60 FPS anchor interpolation.
-- **>90% Word-Level Time Mapping:** Enhanced LRC/TTML parser backed by a phonetic vocal syllable distribution engine ensures virtually every track features word-level pacing.
+- **Smooth Playback Synchronization:** Combines player notifications and AppleScript polling with a 60 FPS playback-position interpolation loop.
+- **Word-Level Lyrics:** Uses enhanced LRC word timestamps when available and estimates word pacing from line-level LRC timestamps otherwise; estimated timings are not guaranteed to match the vocal precisely.
 - **Metal 3.0 Optical Shaders:** Native MSL stitchable shaders powering real convex lens glass refraction and chromatic dispersion.
 - **770+ Visual Token Dictionary:** Contextual SF Symbols and emojis pop in dynamically beside lyrics matching celestial, romance, energy, weather, music, motion, and lifestyle vocabulary.
 - **Dynamic Album Art Palette Engine:** Samples vibrant, high-contrast tri-color palettes from album artwork in real time.
-- **Lock Screen Display Sleep Prevention:** Maintains `IOPMAssertionCreateWithName` assertions while tracks are playing so the lock screen never dims mid-song.
-- **Lumn Companion Lighting:** Dynamic peripheral ambient screen halo that pulses in lockstep with the lyric rhythm.
+- **Display Sleep Prevention:** Requests a display-sleep assertion while the visualizer is shown during playback.
+- **Lumn Companion Lighting:** Dynamic peripheral screen halo that pulses with lyric word timing and an estimated beat.
 
 ---
 
@@ -23,13 +23,13 @@
 flowchart LR
     A["1. Download DMG"] --> B["2. Drag to Applications"]
     B --> C["3. Open Menu Bar Item"]
-    C --> D["4. Play Music & Lock Screen"]
+    C --> D["4. Play Music"]
 ```
 
 1. **Download DMG:** Grab the release `Valdi-1.0.0.dmg`.
 2. **Drag to Applications:** Drop the `Valdi.app` icon into the `/Applications` symlink.
 3. **Open Menu Bar Item:** Launch Valdi; the waveform icon appears in the top menu bar. Grant AppleScript automation permissions when prompted for Spotify and Apple Music.
-4. **Play Music & Lock Screen:** Hit play in Spotify or Apple Music, lock your Mac (<kbd>Ctrl</kbd> + <kbd>Cmd</kbd> + <kbd>Q</kbd>), and enjoy millisecond-accurate lyrics floating over your lock screen.
+4. **Play Music:** Hit play in Spotify or Apple Music. Valdi fetches synced lyrics from LRCLIB and displays the selected visualizer. Tracks without word-level timestamps use estimated word timing. macOS controls what third-party apps can display over the secure lock screen, so lock-screen overlays may vary by system version and security state.
 
 ---
 
@@ -117,7 +117,7 @@ Valdi utilizes Metal 3.0 MSL stitchable functions for real-time lens refraction:
 ## ✦ Building & Packaging
 
 ### Requirements
-- macOS 14.0 (Sonoma) or later
+- macOS 14.0 (Sonoma) or later; CI is configured to build and test on macOS 26
 - Xcode 15.0+ or Swift 5.9+
 
 ### Build from Terminal (macOS)
@@ -132,7 +132,7 @@ swift test
 # Build release executable
 swift build -c release
 
-# Generate standalone DMG installer
+# Generate standalone DMG installer and app ZIP
 chmod +x Scripts/build_dmg.sh
 ./Scripts/build_dmg.sh
 ```
@@ -141,7 +141,7 @@ chmod +x Scripts/build_dmg.sh
 
 ## ✦ Automated GitHub Actions CI/CD (Cloud DMG Builder)
 
-A GitHub Actions workflow is included at `.github/workflows/build.yml`. Simply pushing this repository to GitHub will trigger an Apple `macos-14` runner that compiles the project, runs tests, and produces a ready-to-download `Valdi-1.0.0.dmg` in the repository's Releases or Actions artifacts!
+A GitHub Actions workflow is included at `.github/workflows/build.yml`. Pushing this repository to GitHub triggers a `macos-26` runner to compile the project, run tests, and produce a DMG and a ZIP containing the compiled `Valdi.app` as Actions artifacts. The app's minimum deployment target is macOS 14.0; CI is configured for macOS 26, while macOS 27 has not been runtime-tested.
 
 ---
 

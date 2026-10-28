@@ -13,6 +13,10 @@ public final class AppDelegate: NSObject, NSApplicationDelegate, ObservableObjec
     public func applicationDidFinishLaunching(_ notification: Notification) {
         // Enforce accessory policy (Menu Bar only, no Dock icon)
         NSApp.setActivationPolicy(.accessory)
+
+        let lumn = LumnCompanionService.shared
+        lumn.isEnabled = theme.lumnEnabled
+        lumn.intensity = theme.lumnIntensity
         
         setupSyncObservers()
         
@@ -25,6 +29,19 @@ public final class AppDelegate: NSObject, NSApplicationDelegate, ObservableObjec
         let music = MusicIntegrationService.shared
         let lock = LockScreenDetector.shared
         let lyrics = LyricsEngine.shared
+        let lumn = LumnCompanionService.shared
+
+        lumn.$isEnabled
+            .sink { [weak self] isEnabled in
+                self?.theme.lumnEnabled = isEnabled
+            }
+            .store(in: &cancellables)
+
+        lumn.$intensity
+            .sink { [weak self] intensity in
+                self?.theme.lumnIntensity = intensity
+            }
+            .store(in: &cancellables)
         
         // 1. When track changes, fetch lyrics and update palette
         music.$currentTrack

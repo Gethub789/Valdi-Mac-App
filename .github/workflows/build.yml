@@ -1,0 +1,35 @@
+name: Build & Package Valdi DMG
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+jobs:
+  build-and-package:
+    name: Build Valdi macOS Application & DMG
+    runs-on: macos-14 # macOS Sonoma runner with Apple Silicon & Xcode 15+
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Select Xcode Version
+        run: sudo xcode-select -s /Applications/Xcode_15.4.app
+
+      - name: Run Test Suite
+        run: swift test
+
+      - name: Build & Package DMG
+        run: |
+          chmod +x Scripts/build_dmg.sh
+          ./Scripts/build_dmg.sh
+
+      - name: Upload DMG Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Valdi-1.0.0-macOS-DMG
+          path: Valdi-*.dmg
+          if-no-files-found: error

@@ -1,0 +1,33 @@
+#!/bin/bash
+# ==============================================================================
+# Valdi Universal Click-and-Run Launcher for macOS
+# ==============================================================================
+
+DIR="$(cd "$(dirname "$0")" && pwd)"
+APP_DIR="$(cd "$DIR/../.." && pwd)"
+PROJECT_DIR="$(cd "$APP_DIR" && pwd)"
+
+# 1. Direct native compiled binary inside app bundle
+if [ -x "$DIR/Valdi.bin" ]; then
+    exec "$DIR/Valdi.bin" "$@"
+fi
+
+# 2. Precompiled binary from swift build
+if [ -x "$PROJECT_DIR/.build/release/Valdi" ]; then
+    exec "$PROJECT_DIR/.build/release/Valdi" "$@"
+fi
+
+if [ -x "$PROJECT_DIR/.build/arm64-apple-macosx/release/Valdi" ]; then
+    exec "$PROJECT_DIR/.build/arm64-apple-macosx/release/Valdi" "$@"
+fi
+
+# 3. Dynamic Click-and-Run on any Mac with Swift / Xcode Command Line Tools
+if command -v swift >/dev/null 2>&1; then
+    osascript -e 'display notification "Launching Valdi synced lyrics..." with title "Valdi"' >/dev/null 2>&1 || true
+    cd "$PROJECT_DIR"
+    exec swift run -c release Valdi "$@"
+fi
+
+# 4. Fallback prompt if developer tools are completely absent
+osascript -e 'display alert "Valdi Setup Required" message "Please run Scripts/build_dmg.sh in Terminal or install Xcode Command Line Tools." as critical'
+exit 1

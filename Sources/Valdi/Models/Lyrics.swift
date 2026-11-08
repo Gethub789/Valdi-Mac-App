@@ -1,7 +1,7 @@
 import Foundation
 
 /// Individual word with exact millisecond start and end boundaries.
-public struct WordLyric: Identifiable, Equatable, Hashable {
+public struct WordLyric: Identifiable, Codable, Equatable, Hashable {
     public let id: UUID
     public let text: String
     public let cleanWord: String
@@ -47,7 +47,7 @@ public struct WordLyric: Identifiable, Equatable, Hashable {
 }
 
 /// A complete lyric line consisting of word tokens.
-public struct LineLyric: Identifiable, Equatable {
+public struct LineLyric: Identifiable, Codable, Equatable {
     public let id: Int
     public let startTimeMs: Double
     public let endTimeMs: Double
@@ -86,7 +86,7 @@ public struct LineLyric: Identifiable, Equatable {
 }
 
 /// The entire song synced lyrics collection.
-public struct SyncedSongLyrics: Equatable {
+public struct SyncedSongLyrics: Codable, Equatable {
     public let title: String
     public let artist: String
     public let durationMs: Double

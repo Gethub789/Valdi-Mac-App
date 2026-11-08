@@ -1,6 +1,7 @@
 import AppKit
 import Combine
 import Foundation
+import QuartzCore
 
 /// Coordinates with Spotify and Apple Music to provide millisecond-accurate track playback synchronization.
 public final class MusicIntegrationService: ObservableObject {
@@ -340,23 +341,57 @@ public final class MusicIntegrationService: ObservableObject {
     }
     
     private func fetchArtwork(for track: Track) {
-        if track.playerType == .appleMusic {
-            DispatchQueue.global(qos: .utility).async { [weak self] in
-                let script = """
-                tell application "Music"
-                    if exists (current track) then
-                        tell current track
-                            if exists (artworks) and (count of artworks) > 0 then
-                                set rawData to raw data of artwork 1
-                                return rawData
-                            end if
-                        end tell
-                    end if
-                end tell
-                return ""
-                """
-                // AppleScript returns raw descriptor; or we can rely on standard cache
-                _ = self?.executeAppleScript(script)
+        guard track.playerType == .appleMusic else { return }
+
+        DispatchQueue.global(qos: .utility).async { [weak self] in
+            let source = """
+            tell application "Music"
+                if exists (current track) then
+                    tell current track
+                        if exists (artworks) and (count of artworks) > 0 then
+                            return raw data of artwork 1
+                        end if
+                    end tell
+                end if
+            end tell
+            """
+
+            var error: NSDictionary?
+            guard let script = NSAppleScript(source: source) else {
+                #if DEBUG
+                print("[Valdi] Could not create Apple Music artwork script")
+                #endif
+                return
+            }
+
+            let descriptor = script.executeAndReturnError(&error)
+            guard error == nil, let image = NSImage(data: descriptor.data) else {
+                #if DEBUG
+                if let error = error {
+                    print("[Valdi] Could not fetch Apple Music artwork: \(error)")
+                }
+                #endif
+                return
+            }
+
+            DispatchQueue.main.async { [weak self] in
+                guard let self,
+                      let current = self.currentTrack,
+                      current.id == track.id,
+                      current.artwork == nil else { return }
+
+                self.currentTrack = Track(
+                    id: current.id,
+                    title: current.title,
+                    artist: current.artist,
+                    album: current.album,
+                    durationMs: current.durationMs,
+                    currentPositionMs: current.currentPositionMs,
+                    playbackState: current.playbackState,
+                    playerType: current.playerType,
+                    artwork: image,
+                    artworkData: descriptor.data
+                )
             }
         }
     }

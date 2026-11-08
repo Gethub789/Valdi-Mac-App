@@ -123,8 +123,8 @@ Valdi utilizes Metal 3.0 MSL stitchable functions for real-time lens refraction:
 ### Build from Terminal (macOS)
 ```bash
 # Clone and enter directory
-git clone https://github.com/valdi-app/valdi.git
-cd valdi
+git clone https://github.com/Gethub789/Valdi-Mac-App.git
+cd Valdi-Mac-App
 
 # Run unit tests
 swift test

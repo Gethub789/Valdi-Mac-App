@@ -297,6 +297,17 @@ public struct MenuBarDropdownView: View {
     
     private var footerSection: some View {
         HStack {
+            Button {
+                onToggleOverlay()
+            } label: {
+                HStack(spacing: 4) {
+                    Image(systemName: "eye")
+                    Text("Toggle Preview")
+                }
+                .font(.system(size: 11))
+            }
+            .buttonStyle(.borderless)
+
             // Simulator Mode Quick Toggle
             Button {
                 triggerSimulatorDemo()

@@ -48,6 +48,7 @@ public struct VisualWordsView: View {
             ForEach(line.words) { word in
                 let isWordActive = word.isActive(at: positionMs)
                 let isWordPast = word.isPast(at: positionMs)
+                let wordProgress = word.progress(at: positionMs)
                 
                 HStack(spacing: 6) {
                     // Matched SF Symbol / Emoji badge popping in beside the word
@@ -67,7 +68,7 @@ public struct VisualWordsView: View {
                         .animation(.spring(response: 0.22, dampingFraction: 0.6), value: isWordActive)
                     }
                     
-                    // Word text with progressive syllable fill
+                    // Reveal the active word from left to right in time with playback.
                     Text(word.text)
                         .font(.system(
                             size: isCurrentLine ? 44 : 32,
@@ -78,12 +79,33 @@ public struct VisualWordsView: View {
                             isWordActive ? theme.highlightColor :
                             (isWordPast ? theme.lyricColor : theme.lyricColor.opacity(0.35))
                         )
+                        .overlay(alignment: .leading) {
+                            if isWordActive {
+                                GeometryReader { geometry in
+                                    Text(word.text)
+                                        .font(.system(
+                                            size: isCurrentLine ? 44 : 32,
+                                            weight: .heavy,
+                                            design: .rounded
+                                        ))
+                                        .foregroundStyle(theme.highlightColor)
+                                        .fixedSize()
+                                        .frame(
+                                            width: geometry.size.width * CGFloat(wordProgress),
+                                            height: geometry.size.height,
+                                            alignment: .leading
+                                        )
+                                        .clipped()
+                                }
+                            }
+                        }
                         .scaleEffect(isWordActive ? 1.15 : 1.0)
                         .shadow(
                             color: isWordActive ? theme.highlightColor.opacity(0.8) : .clear,
                             radius: isWordActive ? 20 : 0
                         )
                         .animation(.spring(response: 0.2, dampingFraction: 0.65), value: isWordActive)
+                        .animation(.linear(duration: 1.0 / 60.0), value: wordProgress)
                 }
             }
         }

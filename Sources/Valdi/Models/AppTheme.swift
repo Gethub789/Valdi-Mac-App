@@ -1,3 +1,4 @@
+import AppKit
 import SwiftUI
 
 /// Central state representation of theme, colors, and visual styles.

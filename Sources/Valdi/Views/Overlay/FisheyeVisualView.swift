@@ -48,6 +48,14 @@ public struct FisheyeVisualView: View {
                         ),
                         maxSampleOffset: CGSize(width: 90, height: 90)
                     )
+                    .layerEffect(
+                        ShaderLibrary.bundle(.module).lensChromaticDispersion(
+                            .float2(Float(focalCenter.x), Float(focalCenter.y)),
+                            .float(Float(dynamicRadius)),
+                            .float(0.012)
+                        ),
+                        maxSampleOffset: CGSize(width: 100, height: 100)
+                    )
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }

@@ -52,6 +52,27 @@ final class ValdiTests: XCTestCase {
         }
     }
     
+    func testEnhancedLrcWordTimestampsAndCodableCache() throws {
+        let engine = LyricsEngine.shared
+        let song = engine.parseSyncedLrc(
+            rawLrc: "[00:01.00]Sun <00:01.50>comes <00:02.00>up",
+            title: "Sunrise",
+            artist: "Valdi",
+            durationMs: 10000
+        )
+
+        XCTAssertTrue(song.isWordLevelSynced)
+        XCTAssertEqual(song.lines.first?.words.count, 3)
+        XCTAssertEqual(song.lines.first?.words[0].startTimeMs, 1000)
+        XCTAssertEqual(song.lines.first?.words[0].endTimeMs, 1500)
+        XCTAssertEqual(song.lines.first?.words[1].startTimeMs, 1500)
+        XCTAssertEqual(song.lines.first?.words[1].endTimeMs, 2000)
+
+        let encoded = try JSONEncoder().encode(song)
+        let decoded = try JSONDecoder().decode(SyncedSongLyrics.self, from: encoded)
+        XCTAssertEqual(decoded, song)
+    }
+
     func testWordTimingContinuity() {
         let engine = LyricsEngine.shared
         let line = "I said ooh I'm blinded by the lights"

@@ -1,3 +1,4 @@
+import Combine
 import Foundation
 
 /// Engine responsible for fetching, parsing, and synthesizing word-by-word synced lyrics.
@@ -13,11 +14,18 @@ public final class LyricsEngine: ObservableObject {
     private var memoryCache: [String: SyncedSongLyrics] = [:]
     private let fileManager = FileManager.default
     private let cacheDirectory: URL
+    private var requestedCacheKey: String?
     
     public init() {
         let paths = fileManager.urls(for: .cachesDirectory, in: .userDomainMask)
         let dir = paths[0].appendingPathComponent("com.valdi.app/Lyrics", isDirectory: true)
-        try? fileManager.createDirectory(at: dir, withIntermediateDirectories: true)
+        do {
+            try fileManager.createDirectory(at: dir, withIntermediateDirectories: true)
+        } catch {
+            #if DEBUG
+            print("[Valdi] Could not create lyrics cache directory: \(error)")
+            #endif
+        }
         self.cacheDirectory = dir
         
         loadBundledLyrics()
@@ -27,9 +35,11 @@ public final class LyricsEngine: ObservableObject {
     
     public func fetchLyrics(for track: Track) {
         let cacheKey = "\(track.artist)-\(track.title)".lowercased()
+        requestedCacheKey = cacheKey
         
         // 1. Check in-memory cache
         if let cached = memoryCache[cacheKey] {
+            isLoading = false
             self.currentLyrics = cached
             return
         }
@@ -37,6 +47,7 @@ public final class LyricsEngine: ObservableObject {
         // 2. Check disk cache
         if let diskLyrics = loadFromDisk(key: cacheKey) {
             memoryCache[cacheKey] = diskLyrics
+            isLoading = false
             self.currentLyrics = diskLyrics
             return
         }
@@ -45,8 +56,8 @@ public final class LyricsEngine: ObservableObject {
         isLoading = true
         fetchOnlineLyrics(title: track.title, artist: track.artist, album: track.album, durationSec: track.durationMs / 1000.0) { [weak self] lyrics in
             DispatchQueue.main.async {
-                self?.isLoading = false
-                guard let self = self else { return }
+                guard let self = self, self.requestedCacheKey == cacheKey else { return }
+                self.isLoading = false
                 
                 if let lyrics = lyrics {
                     self.memoryCache[cacheKey] = lyrics
@@ -123,9 +134,6 @@ public final class LyricsEngine: ObservableObject {
         
         // Regex for standard LRC timestamp [mm:ss.xx]
         let timestampRegex = try? NSRegularExpression(pattern: "\\[(\\d{2}):(\\d{2})[\\.:](\\d{2,3})\\]", options: [])
-        
-        // Regex for enhanced word timestamp <mm:ss.xx>
-        let wordTagRegex = try? NSRegularExpression(pattern: "<(\\d{2}):(\\d{2})[\\.:](\\d{2,3})>", options: [])
         
         var rawLineData: [(startMs: Double, text: String)] = []
         
@@ -304,11 +312,37 @@ public final class LyricsEngine: ObservableObject {
     // MARK: - Disk Persistence
     
     private func saveToDisk(lyrics: SyncedSongLyrics, key: String) {
-        // Disk caching for offline support
+        do {
+            let data = try JSONEncoder().encode(lyrics)
+            try data.write(to: cacheURL(for: key), options: .atomic)
+        } catch {
+            #if DEBUG
+            print("[Valdi] Could not cache lyrics: \(error)")
+            #endif
+        }
     }
     
     private func loadFromDisk(key: String) -> SyncedSongLyrics? {
-        return nil
+        let url = cacheURL(for: key)
+        guard fileManager.fileExists(atPath: url.path) else { return nil }
+
+        do {
+            let data = try Data(contentsOf: url)
+            return try JSONDecoder().decode(SyncedSongLyrics.self, from: data)
+        } catch {
+            #if DEBUG
+            print("[Valdi] Could not read cached lyrics: \(error)")
+            #endif
+            return nil
+        }
+    }
+
+    private func cacheURL(for key: String) -> URL {
+        let filename = Data(key.utf8).base64EncodedString()
+            .replacingOccurrences(of: "/", with: "_")
+            .replacingOccurrences(of: "+", with: "-")
+            .replacingOccurrences(of: "=", with: "")
+        return cacheDirectory.appendingPathComponent("\(filename).json")
     }
     
     // MARK: - Bundled Popular Offline Songs
